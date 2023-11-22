@@ -7,8 +7,14 @@ const student = {
   grades: { math: 95, science: 89 }
 };
 
-const { grades:score, studName = student.info.name, studAge = student.info.age } = student;
+//destrutturiamo
+
+let {
+  info: {name:studName, age:studAge},
+  grades: {math: matematica, science:scienza}
+} = student;
 
 console.log(studName);
 console.log(studAge);
-console.log(score);
+console.log(matematica);
+console.log(scienza);
