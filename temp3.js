@@ -2,6 +2,6 @@
 
 const name1 = "John";
 const message = "Welcome to our website!";
-const greeting = `${name1+ " "+ message}`;
+const greeting = `${name1}, ${message}`;
 
 console.log(greeting);
