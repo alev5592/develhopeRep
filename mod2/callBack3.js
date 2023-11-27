@@ -1,0 +1,28 @@
+/*Scrivi una funzione chiamata filterArray che accetta un array
+ e una funzione di callback come argomenti. -La funzione callback 
+ deve filtrare e restituire i numeri pari passati come argomento alla funzione
+filterArray
+filterArray dovrebbe restituire un nuovo array contenente
+ solo gli elementi per i quali la funzione di callback restituisce true.
+*/
+
+function filterArray(arr, callback) {
+    let finalArray = [];
+    for(let i=0; i < arr.length; i++){
+        if(callback(arr[i])===true){
+            finalArray.push(arr[i])
+        }
+    }
+    return finalArray;
+}
+
+function isEven(num) { // il problema è qui
+    if(num % 2 === 0 ){
+        return true;
+    }
+    else return false;
+}
+
+const numbers = [1, 2, 3, 4, 5, 6];
+const evenNumbers = filterArray(numbers, isEven);
+console.log(evenNumbers); // Should output [2, 4, 6]

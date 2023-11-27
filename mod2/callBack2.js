@@ -4,6 +4,7 @@ delay dovrebbe eseguire la funzione di callback dopo il ritardo specificato.
 */
 
 function delay(callback, delayTime) {
+  
     setTimeout(() =>{
 
         callback();
