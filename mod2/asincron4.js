@@ -7,14 +7,18 @@ Implementa la funzione lanciaDadi che:
 4- Prima dello scadere dei 2 secondi stampa in console il messaggio ""Lancio dei dadi in corso..."
 
 */
-let lanciaDadi = () => { 
+function lanciaDadi(){
     return Math.floor(Math.random() * 6) + 1;
 }
 
 let messaggio = () => {console.log(`Dado 1 = ${dice1}, Dado 2 = ${dice2}`)}
 
-let dice1 = setTimeout(lanciaDadi,2000)
-let dice2 = setTimeout(lanciaDadi,2000)
+setTimeout(() =>{
+    dice1 = lanciaDadi()
+    dice2 = lanciaDadi()
+},2000);
+
+
 setTimeout(messaggio,2000);
 
 console.log(`Lancio dei dadi in corso...`)
