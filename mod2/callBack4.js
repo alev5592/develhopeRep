@@ -3,9 +3,8 @@
 La funzione dovrebbe eseguire ogni callback nell'ordine in cui appaiono nell'array.*/
 
 function runCallbacks(callbacks) {
-    let fun ;
     for(let i =0; i < callbacks.length; i++){
-        fun = callbacks[i]();
+        callbacks[i]()
     }
 }
 function firstCallback() {
