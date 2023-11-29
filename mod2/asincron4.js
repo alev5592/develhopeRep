@@ -18,11 +18,11 @@ function diceRoller(){
     let dice2;
 
     setTimeout(() =>{
-        let dice1 = lanciaDadi()
-        let dice2 = lanciaDadi()
+        dice1 = lanciaDadi()
+        dice2 = lanciaDadi()
         console.log(`Dado1: ${dice1}, Dado2: ${dice2}`)
     },2000);
-    
+
 }
 
 diceRoller();
