@@ -71,8 +71,11 @@ function fetchUserPosts(userId, userName) {
   let post = ['Post 1', 'Post 2', 'Post 3'];
   for (let i = 0; i < post.length; i++) {
     let checkPost = checkPromisePost(post[i]).then((x) => {
-      console.log(x)
-      console.log(utente)
+      if(i===0){
+        console.log(x)
+        console.log(`ID : ${userId} | Username: ${userName} ha postato:`)
+      }
+      console.log(post[i]);
     }).catch((error) => {
       console.log(error)
     });
