@@ -1,86 +1,66 @@
-/*-Crea una catena di Promises per simulare un'operazione asincrona 
+/*
+-Crea una catena di Promises per simulare un'operazione asincrona 
 in più fasi. -La prima Promise recupera i dati dell'utente 
 { id: 1, name: 'John' }. -La seconda Promise recupera 
 i post dell'utente ['Post 1', 'Post 2', 'Post 3']. 
 -Infine, chiama le funzioni per recuperare e stampare in console 
 il nome dell'utente e i titoli dei post.
 */
-let utente = {
 
+let utente = {
   id: 1,
-  name: 'John',
+  nome: "John"
 };
 
-function checkPromiseID(data) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (typeof (data.id) === "number") {
-        resolve("ID Valido!");
-      }
-      else {
-        reject(`L'ID deve essere un numero`)
-      }
-    }, 2000)
-  });
-}
+let post = ['Post 1', 'Post 2', 'Post 3'];
 
-function checkPromiseName(data) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (typeof (data.name) === 'string') {
-        resolve("Il nome è valido!");
-      }
-      else {
-        reject(`Inserire un nome che sia una stringa!`)
-      }
-    }, 2000)
-  });
-}
-
-function checkPromisePost(arrayPost) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (typeof (arrayPost) === 'string') {
-        resolve("Post corretto");
-      }
-      else {
-        reject(`Inserire un post valido !`)
-      }
-    }, 2000)
-  });
-}
 function fetchUserData() {
-  let data = utente;
+
   console.log("Sto recuperando i dati...")
-
-  const check1 = checkPromiseID(data).then((x) => {
-    console.log(x);
-  }).catch((error) => {
-    console.log(error)
-  });
-
-  const check2 = checkPromiseName(data).then((x) => {
-    console.log(x);
-  }).catch((error) => {
-    console.log(error)
-  });
+  return new Promise((resolve,reject) => {
+    setTimeout(() => {
+      if((typeof(utente.id) == "number") && typeof(utente.nome) === 'string'){
+        resolve(utente)
+      }
+      else{
+        console.log("ERROR : Name must be a STRING, ID must be a NUMBER")
+      }
+    },1000)
+  })
 }
+  
 
 function fetchUserPosts(userId, userName) {
 
-  let post = ['Post 1', 'Post 2', 'Post 3'];
-  for (let i = 0; i < post.length; i++) {
-    let checkPost = checkPromisePost(post[i]).then((x) => {
-      if(i===0){
-        console.log(x)
-        console.log(`ID : ${userId} | Username: ${userName} ha postato:`)
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if(Array.isArray(post)){
+        resolve(`I post dell'utente ID: ${userId} Nome: ${userName} sono corretti!`)
       }
-      console.log(post[i]);
-    }).catch((error) => {
-      console.log(error)
-    });
-  }
+      else {
+        reject(`ERRORE I post dell'utente ID: ${userId} Nome: ${userName} non sono validi!`)
+      }
+    },3000)
+  })
+  
 }
 
-fetchUserData()
-fetchUserPosts(utente.id, utente.name)
+// Chiamo Prima Promise 
+
+fetchUserData().then((success) => {
+  console.log(success)})
+  .catch((error) => {
+    console.log(error);
+  })
+
+// Chiamo Seconda Promise
+
+fetchUserPosts(utente.id,utente.nome).then((success) => {
+  console.log(success)
+  console.log(post)})
+.catch((error => {console.log(error)}))
+
+/*
+}
+*/
+//fetchUserPosts(utente.id, utente.name)

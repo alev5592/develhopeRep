@@ -2,14 +2,14 @@
 La promise dovrebbe risolversi con i dati e rifiutare con un messaggio di errore.
 */
 
-let person = { name: "John", age: 17 };
+let person = { name: "John", age: 19 };
 
 function fetchDataFromAPI(callback) {
 
     let data = person;
     console.log("Sto recuperando i dati...")
 
-    const check = handleData(data).then((x) => {
+    handleData(data).then((x) => {
         console.log(x)
         console.log(data);
     }).catch((error) =>{

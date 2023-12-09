@@ -27,7 +27,7 @@ function promise_BasedFunction(arg1,arg2){
     })
 }
 
-const check = promise_BasedFunction(6,3).then((success) => {
+promise_BasedFunction(6,3).then((success) => {
     console.log(success);
 }).catch((error) => {
     console.log(error);

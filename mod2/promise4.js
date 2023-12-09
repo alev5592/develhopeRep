@@ -25,7 +25,7 @@ function fetchDataFromAPI() {
 }
 
 console.log("Retrieving data from API, please wait...")
-const check = fetchDataFromAPI().then((x) => {
+fetchDataFromAPI().then((x) => {
     console.log(x)
     }).catch((error) =>{
         console.log(error)

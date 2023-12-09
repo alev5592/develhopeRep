@@ -22,7 +22,7 @@ let data = candidate;
 
 console.log("Processing Data...")
 
-const check = handleData(data).then((x) => {
+handleData(data).then((x) => {
     console.log(x)
     console.log(data);
     }).catch((error) =>{
