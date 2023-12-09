@@ -59,8 +59,3 @@ fetchUserPosts(utente.id,utente.nome).then((success) => {
   console.log(success)
   console.log(post)})
 .catch((error => {console.log(error)}))
-
-/*
-}
-*/
-//fetchUserPosts(utente.id, utente.name)
